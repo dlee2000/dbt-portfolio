@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: nsw_vg
+    description: NSW Valuer General bulk property sales, raw .DAT files
+    tables:
+      - name: psi_raw
+        description: One row per raw line across all .DAT files
+        meta:
+          external_location: >
+            read_csv('data/raw/**/*.DAT', delim='|', header=false,
+                     names=['raw_line'], all_varchar=true, filename=true)
